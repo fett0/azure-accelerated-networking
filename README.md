@@ -3,13 +3,11 @@
 Terraform Module to create a Resource Group  with Azure Virtual Network (VNet), subnets accross one public
 and interfaces with Azure Accelareted networkting activated.
 
-To connected our VyOS router , we need to create the proper ssh public/private key and the public KEY should stored in files/key.pub.
+To connect our VyOS router, we need to create the proper SSH public/private key, and the public key should be stored in files/key.pub.
 
-The VM VyOS instance in the public subnet is assigned from the
-the intenret via port 22 (for ssh), user is vyos by default.
+Access to VyOS VM instance from the internet is available using ssh (port 22) and the user is vyos by default.
 
-
-This module allows you to generate a public ip address and associate it with our VyOS instance.
+This module allows you to generate a public IP address and associate it with our VyOS instance.
 
 ## High level diagram on Azure
 
@@ -19,9 +17,9 @@ This module allows you to generate a public ip address and associate it with our
 
 Modules:
 
-- main: Sets up a Vnet with Subnets, 1 public subnets, Network security Groups  and interfaces with acceleration network, public ip address.
+- main: Sets up a Vnet with Subnets, 1 public subnet, Network security groups, and interfaces with acceleration network, public IP address.
 - VMs: Currently creates a VM with vyos(vyos-1.4.0, where the version can be defined by variable) public/private subnet.
-- rsa key pub key must be use to connected our vm, user is: vyos
+- rsa key pub key must be used to connect our vm, user is: vyos
 
 
 ## Requirements
