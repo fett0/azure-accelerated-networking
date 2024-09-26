@@ -9,6 +9,7 @@ Access to VyOS VM instance from the internet is available using ssh (port 22) an
 
 This module allows you to generate a public IP address and associate it with our VyOS instance.
 
+
 ## High level diagram on Azure
 
 ![Diagram](img/azurenetacceleartion.png)
