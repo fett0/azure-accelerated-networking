@@ -51,10 +51,10 @@ $ terraform apply
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | namespace | The project namespace to use for unique resource naming | `string` | `"automation-vyos"` | no |
-| location | location form azure zone  | `string` | `"West Europe"` | yes |
-| resource_group | The name of your RG| `string` | `"vyos_resource_group"` | yes |
-| cidr | cidr is used for virtual-network| `string` | `""10.0.0.0/22"` | yes |
-| pub_subnets | network public that it is used for virtual-network| `string` | `"10.0.2.0/24"` | yes |
+| location | location form azure zone | `string` | `"West Europe"` | yes |
+| resource_group | The name of your RG | `string` | `"vyos_resource_group"` | yes |
+| cidr | cidr is used for virtual-network | `string` | `"10.0.0.0/22"` | yes |
+| pub_subnet | network public that it is used for virtual-network | `string` | `"10.0.2.0/24"` | yes |
 | hostname | The name of your VM | `string` | `"vyosaz01new"` | yes |
 | vyos_image_id | vyos version used for our VM | `string` | `"1.4.0"` | yes |
 
