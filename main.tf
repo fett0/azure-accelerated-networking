@@ -1,19 +1,3 @@
-terraform {
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = "3.93.0"
-    }
-  }
-}
-
-provider "azurerm" {
-  # Configuration options
-  features {
-
-  }
-}
-
 # Create a resource group. In Azure every resource belongs to a
 # resource group.
 
@@ -55,7 +39,7 @@ resource "azurerm_network_interface" "vyos_nic" {
 }
 
 resource "azurerm_network_security_group" "vyos_nsg" {
-  name                = "ssh_nsg"
+  name                = "ports_nsg"
   location            = "${var.location}"
   resource_group_name = "${var.resource_group}"
 
@@ -67,6 +51,19 @@ resource "azurerm_network_security_group" "vyos_nsg" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "22"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+
+  # For VxLAN Traffic
+  security_rule {
+    name                       = "allow_vxlan_sg"
+    priority                   = 101
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Udp"
+    source_port_range          = "*"
+    destination_port_range     = "4789"
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
