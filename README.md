@@ -44,6 +44,10 @@ $ terraform init
 $ terraform plan
 $ terraform apply
 ```
+## Outputs
+```bash
+$ VyOS_Public_IP_Address = "x.x.x.x"
+```
 
 ## Inputs
 
@@ -56,5 +60,6 @@ $ terraform apply
 | pub_subnets | network public that it is used for virtual-network| `string` | `"10.0.2.0/24"` | yes |
 | hostname | The name of your VM | `string` | `"vyosaz01new"` | yes |
 | vyos_image_id | vyos version used for our VM | `string` | `"1.4.0"` | yes |
-
-
+| image_publisher_id | Name of the publisher of the image| `string` | `"sentriumsl"` | yes |
+| image_offer_id | Name of the offer | `string` | `"vyos-1-2-lts-on-azure"` | yes |
+| image_sku | Image SKU to apply | `string` | `"vyos-1-3"` | yes |

@@ -18,7 +18,9 @@ resource "azurerm_public_ip" "public_ip" {
   name                = "vyosPublicIp1"
   resource_group_name = "${var.resource_group}"
   location            = "${var.location}"
-  allocation_method   = "Dynamic"
+  sku                     = "Standard"
+  allocation_method       = "Static"
+  idle_timeout_in_minutes = "30"
 }
  
 resource "azurerm_network_interface" "vyos_nic" {
@@ -81,6 +83,9 @@ module "vms" {
   source                      = "./modules/vms"
   hostname                    = var.hostname 
   vyos_image_id               = var.vyos_image_id
+  image_publisher_id          = var.image_publisher
+  image_offer_id              = var.image_offer
+  image_sku_id                = var.image_sku
   resource_group              = var.resource_group
   location                    = var.location
   network_interface_id        = azurerm_network_interface.vyos_nic.id
