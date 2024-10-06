@@ -5,15 +5,15 @@ variable "namespace" {
 }
 variable "resource_group" {
   description = "The name of your Azure Resource Group."
-  default     = "vyos_resource_group"
+  default     = "<YOUR RESOURCE GROUP>"
 }
 variable "hostname" {
   description = "The name of your VM"
   default     = "vyosaz01new"
 }
 variable "location" {
-  description = "The region where the virtual network is created."
-  default     = "West Europe"
+  description = "The region where all resources will deploy"
+  default     = "LOCATION EXAMPLE: West Europe"
 }
 variable "cidr" {
   description = "cidr is used for virtual-network"
@@ -29,4 +29,18 @@ variable "vyos_image_id" {
   description = "id image "
   default     = "1.4.0"
   type        = string
+}
+variable "image_publisher" {
+  description = "Name of the publisher of the image (az vm image list)"
+  default     = "sentriumsl"
+}
+
+variable "image_offer" {
+  description = "Name of the offer (az vm image list)"
+  default     = "vyos-1-2-lts-on-azure"
+}
+
+variable "image_sku" {
+  description = "Image SKU to apply (az vm image list)"
+  default     = "vyos-1-3"
 }

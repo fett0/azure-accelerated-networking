@@ -19,15 +19,15 @@ resource "azurerm_linux_virtual_machine" "vyos_test_new" {
   }
 
   source_image_reference {
-    publisher = "sentriumsl"
-    offer     = "vyos-1-2-lts-on-azure"
-    sku       = "vyos-1-3"
+    publisher = "${var.image_publisher_id}"
+    offer     = "${var.image_offer_id}"
+    sku       = "${var.image_sku_id}"
     version   = "${var.vyos_image_id}"
   }
 
   plan {
-    publisher = "sentriumsl"
-    name      = "vyos-1-3"
-    product   = "vyos-1-2-lts-on-azure"
+    publisher = "${var.image_publisher_id}"
+    name      = "${var.image_sku_id}"
+    product   = "${var.image_offer_id}"
   }
 }
