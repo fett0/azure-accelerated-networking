@@ -10,7 +10,7 @@ resource "azurerm_linux_virtual_machine" "vyos_test_new" {
 
   admin_ssh_key {
     username   = "vyos"
-    public_key = file("files/id_rsa.pub")
+    public_key = file("files/key.pub")
   }
 
   os_disk {
